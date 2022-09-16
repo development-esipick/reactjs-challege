@@ -97,11 +97,11 @@ const CountryPage = () => {
                                 Border Countries:
                             </Typography>
                         </Grid>
-                        <Grid display={"flex"} justifyContent={"space-around"} flexWrap={"wrap"} xs={12} md={9}>
+                        <Grid display={"flex"} justifyContent={"start"} flexWrap={"wrap"} xs={12} md={9}>
                             {
                                 country.borders && country.borders!.map((ele, i) => {
                                     return (
-                                        <Button key={i} onClick={() => handleBorderClick(ele)} variant="contained">{ele} </Button>
+                                        <Button key={i} sx={{ margin: '5px 10px 0 0' }} onClick={() => handleBorderClick(ele)} variant="contained">{ele} </Button>
                                     )
                                 })
                             }
