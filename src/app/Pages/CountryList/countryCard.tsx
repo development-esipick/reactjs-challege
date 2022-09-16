@@ -19,11 +19,12 @@ type coutryCardType = {
 
 export default function MediaCard({ image, name, population, region, capital }: coutryCardType) {
 
-  const { setCountryData } = useCountryContext();
+  const { clearCountryList } = useCountryContext();
   const navigate = useNavigate();
 
   const handleCountryClick = () => {
     // setCountryData(country)
+    clearCountryList()
     navigate(`/country-detail?country=${name}`);
   }
   return (

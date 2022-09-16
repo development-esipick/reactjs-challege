@@ -43,9 +43,11 @@ const CountryPage = () => {
         <Container maxWidth="lg" sx={{ mt: 8 }}>
             {country && country ? (<>
                 <Grid container spacing={4}>
-                    <Button onClick={() => navigate('/')} color='secondary' variant="outlined" startIcon={<KeyboardBackspaceIcon />}>
-                        Back
-                    </Button>
+                    <Grid xs={12}>
+                        <Button onClick={() => navigate('/')} color='secondary' variant="outlined" startIcon={<KeyboardBackspaceIcon />}>
+                            Back
+                        </Button>
+                    </Grid>
                 </Grid>
 
                 <Grid container spacing={4} sx={{ mt: 6 }} >

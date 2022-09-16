@@ -6,6 +6,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import { useCountryContext } from '../../context/country-context'
+import FormHelperText from '@mui/material/FormHelperText';
 
 import CountryCard from './countryCard'
 import CircularProgress from '@mui/material/CircularProgress';
@@ -56,7 +57,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const CountriesListPage = () => {
     const [searchTerm, setSearchTerm] = useState('')
 
-    const { countiresList, handleSearch, isLoading } = useCountryContext();
+    const { countiresList, handleSearch, isLoading, error } = useCountryContext();
     const handleSearchCountry = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         setSearchTerm(event.target.value)
     }
@@ -89,6 +90,9 @@ const CountriesListPage = () => {
                         <FilterByRegion />
                     </Search>
                 </Grid>
+                <Grid>
+                    <FormHelperText error color='danger'>{error}</FormHelperText>
+                </Grid>
             </Grid>
             <Grid container spacing={6} sx={{ mt: 6 }} >
                 {countiresList && countiresList.length > 0 && !isLoading ? countiresList.map((ele, i) => {
@@ -98,8 +102,9 @@ const CountriesListPage = () => {
                                 region={ele.region} />
                         </Grid>
                     )
-                }) : <Grid display={"flex"} justifyContent={"center"} md={12}><CircularProgress color="success" /></Grid>}
+                }) : !isLoading ? <h2>{error}</h2> : <Grid display={"flex"} justifyContent={"center"} md={12}><CircularProgress color="success" /></Grid>}
             </Grid>
+
         </Container>
     )
 }
