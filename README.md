@@ -1,6 +1,8 @@
 # Getting started 
 clone the repo and install dependencies using yarn or npm
 
+# This project is created from this reactjs Challenge
+https://github.com/ranyuhan/FE-Code-Challenge
 # packages used
 1. React router dom v6  for handling routes
 2. Material UI for UI, Theming and Components
